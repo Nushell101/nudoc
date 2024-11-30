@@ -439,7 +439,6 @@ export def merge-markdown [
     | sort-by block_index
     | get line
     | str join (char nl)
-    | str replace -r '\s+$' (char nl)
 }
 
 # Prettify markdown by removing unnecessary empty lines and trailing spaces.
