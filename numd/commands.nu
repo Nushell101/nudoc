@@ -445,8 +445,8 @@ export def clean-markdown []: string -> string {
     str replace --all --regex "```output-numd[\n\\s]+```\n" '' # empty output-numd blocks
     | str replace --all --regex "\n{2,}```\n" "\n```\n" # empty lines before closing code fences
     | str replace --all --regex "\n{3,}" "\n\n" # multiple newlines
-    | str replace --all --regex " +(\n|$)" "\n" # remove trailing spaces
-    | str replace --all --regex "\n*$" "\n" # ensure a single trailing newline
+    | str replace --all --regex " +\n" "\n" # remove trailing spaces
+    | str replace --all --regex "\\s*$" "\n" # ensure a single trailing newline
 }
 
 # Replacement is needed to distinguish the blocks with outputs from blocks with just ```.
