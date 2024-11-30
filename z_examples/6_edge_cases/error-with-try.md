@@ -18,4 +18,5 @@ Error: nu::shell::external_command
    ·      ╰── Command `lssomething` not found
    ╰────
   help: `lssomething` is neither a Nushell built-in or a known external command
+
 ```

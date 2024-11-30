@@ -19,6 +19,7 @@ Output:
 
 ```
 foo/baz/bar
+
 ```
 
 ## Example 3
@@ -30,4 +31,5 @@ user
 
 > 2 + 2
 4
+
 ```

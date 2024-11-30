@@ -11,6 +11,7 @@ The [`describe`](/commands/docs/describe.md) command returns the type of a data 
 ```nushell
 > 42 | describe
 int
+
 ```
 
 ## Types at a glance
@@ -41,6 +42,7 @@ You can parse a string into an integer with the [`into int`](/commands/docs/into
 ```nushell
 > "-5" | into int
 -5
+
 ```
 
 ## Decimals (floats)
@@ -51,6 +53,7 @@ You can cast a string into a Float with the [`into float`](/commands/docs/into_f
 ```nushell
 > "1.2" | into float
 1.2
+
 ```
 
 ## Strings
@@ -82,6 +85,7 @@ true
 > let mybool = ($nu.home-path | path exists)
 > $mybool
 true
+
 ```
 
 ## Dates
@@ -117,6 +121,7 @@ You can make fractional durations:
 ```nushell
 > 3.14day
 3day 3hr 21min
+
 ```
 
 And you can do calculations with durations:
@@ -124,6 +129,7 @@ And you can do calculations with durations:
 ```nushell
 > 30day / 1sec  # How many seconds in 30 days?
 2592000
+
 ```
 
 ## File sizes
@@ -157,6 +163,7 @@ As with durations, you can make fractional file sizes, and do calculations:
 
 > (1Gib / 1b) == 2 ** 30
 true
+
 ```
 
 ## Ranges
@@ -213,6 +220,7 @@ Length: 1 (0x1) bytes | printable whitespace ascii_other non_ascii
 > 0o[377]    # Octal
 Length: 1 (0x1) bytes | printable whitespace ascii_other non_ascii
 00000000:   ff                                                   ×
+
 ```
 
 Incomplete bytes will be left-padded with zeros.
@@ -231,6 +239,7 @@ Records hold key-value pairs, which associate string keys with various data valu
 │ name │ sam │
 │ rank │ 10  │
 ╰──────┴─────╯
+
 ```
 
 As these can sometimes have many fields, a record is printed up-down rather than left-right.
@@ -247,6 +256,7 @@ This means that any command that operates on a table's rows _also_ operates on r
 │ y │ 1 │
 │ z │ 0 │
 ╰───┴───╯
+
 ```
 
 :::
@@ -259,6 +269,7 @@ You can iterate over records by first transposing it into a table:
 │ 0 │ name │ sam   │
 │ 1 │ rank │    10 │
 ╰─#─┴─key──┴─value─╯
+
 ```
 
 Accessing records' data is done by placing a `.` before a string, which is usually a bare string:
@@ -266,6 +277,7 @@ Accessing records' data is done by placing a `.` before a string, which is usual
 ```nushell
 > {x:12 y:4}.x
 12
+
 ```
 
 However, if a record has a key name that can't be expressed as a bare string, or resembles an integer (see lists, below), you'll need to use more explicit string syntax, like so:
@@ -273,6 +285,7 @@ However, if a record has a key name that can't be expressed as a bare string, or
 ```nushell
 > {"1":true " ":false}." "
 false
+
 ```
 
 To make a copy of a record with new fields, you can use the [spread operator](/book/operators#spread-operator) (`...`):
@@ -285,6 +298,7 @@ To make a copy of a record with new fields, you can use the [spread operator](/b
 │ age   │ 50      │
 │ hobby │ cricket │
 ╰───────┴─────────╯
+
 ```
 
 ## Lists
@@ -298,6 +312,7 @@ Lists are ordered sequences of data values. List syntax is very similar to array
 │ 1 │ fred   │
 │ 2 │ george │
 ╰───┴────────╯
+
 ```
 
 :::tip
@@ -309,6 +324,7 @@ Lists are equivalent to the individual columns of tables. You can think of a lis
 │ 0 │ bell │
 │ 1 │ book │
 ╰───┴──────╯
+
 ```
 
 :::
@@ -318,6 +334,7 @@ Accessing lists' data is done by placing a `.` before a bare integer:
 ```nushell
 > [a b c].1
 b
+
 ```
 
 To get a sub-list from a list, you can use the [`range`](/commands/docs/range.md) command:
@@ -329,6 +346,7 @@ To get a sub-list from a list, you can use the [`range`](/commands/docs/range.md
 │ 1 │ c │
 │ 2 │ d │
 ╰───┴───╯
+
 ```
 
 To append one or more lists together, optionally with values interspersed in between, you can use the
@@ -344,6 +362,7 @@ To append one or more lists together, optionally with values interspersed in bet
 │ 3 │ 4 │
 │ 4 │ 5 │
 ╰───┴───╯
+
 ```
 
 ## Tables
@@ -358,6 +377,7 @@ We can create our own tables similarly to how we create a list. Because tables a
 │ 0 │ Value1  │ Value2  │
 │ 1 │ Value3  │ Value4  │
 ╰─#─┴─column1─┴─column2─╯
+
 ```
 
 You can also create a table as a list of records, JSON-style:
@@ -368,6 +388,7 @@ You can also create a table as a list of records, JSON-style:
 │ 0 │ sam  │   10 │
 │ 1 │ bob  │    7 │
 ╰─#─┴─name─┴─rank─╯
+
 ```
 
 :::tip
@@ -379,6 +400,7 @@ Internally, tables are simply **lists of records**. This means that any command 
 │ x │ 12 │
 │ y │ 5  │
 ╰───┴────╯
+
 ```
 
 This is true regardless of which table syntax you use:
@@ -389,6 +411,7 @@ This is true regardless of which table syntax you use:
 │ x │ 12 │
 │ y │ 5  │
 ╰───┴────╯
+
 ```
 
 :::
@@ -410,6 +433,7 @@ Moreover, you can also access entire columns of a table by name, to obtain lists
 │ 1 │  4 │
 │ 2 │  2 │
 ╰───┴────╯
+
 ```
 
 Of course, these resulting lists don't have the column names of the table. To remove columns from a table while leaving it as a table, you'll commonly use the [`select`](/commands/docs/select.md) command with column names:
@@ -421,6 +445,7 @@ Of course, these resulting lists don't have the column names of the table. To re
 │ 1 │ 7 │ 3 │
 │ 2 │ 2 │ 0 │
 ╰─#─┴─y─┴─z─╯
+
 ```
 
 To remove rows from a table, you'll commonly use the [`select`](/commands/docs/select.md) command with row numbers, as you would with a list:
@@ -431,6 +456,7 @@ To remove rows from a table, you'll commonly use the [`select`](/commands/docs/s
 │ 0 │ 4 │ 7 │ 3 │
 │ 1 │ 2 │ 2 │ 0 │
 ╰─#─┴─x─┴─y─┴─z─╯
+
 ```
 
 #### Optional cell paths
@@ -443,6 +469,7 @@ By default, cell path access will fail if it can't access the requested row or c
 │ 0 │ 123 │
 │ 1 │     │
 ╰───┴─────╯
+
 ```
 
 When using optional cell path members, missing data is replaced with `null`.
@@ -468,6 +495,7 @@ Output:
 
 ```
 Hello Julian
+
 ```
 
 Closures are a useful way to represent code that can be executed on each row of data.
@@ -492,6 +520,7 @@ Output:
 
 ```
 1001
+
 ```
 
 ## Null

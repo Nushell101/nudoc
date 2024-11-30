@@ -63,6 +63,7 @@ Output:
 │ purple │
 │ blue   │
 ╰────────╯
+
 ```
 
 In case you want to remove items from list, there are many ways. [`skip`](/commands/docs/skip.md) allows you skip first rows from input, while [`drop`](/commands/docs/drop.md) allows you to skip specific numbered rows from end of list.
@@ -80,6 +81,7 @@ Output:
 ╭────────╮
 │ yellow │
 ╰────────╯
+
 ```
 
 We also have [`last`](/commands/docs/last.md) and [`first`](/commands/docs/first.md) which allow you to [`take`](/commands/docs/take.md) from the end or beginning of the list, respectively.
@@ -98,6 +100,7 @@ Output:
 │ black   │
 │ magenta │
 ╰─────────╯
+
 ```
 
 And from the beginning of a list,
@@ -115,6 +118,7 @@ Output:
 │ yellow │
 │ green  │
 ╰────────╯
+
 ```
 
 ## Iterating over lists
@@ -141,6 +145,7 @@ Output:
 │ 3 - Amanda │
 │ 4 - Jeremy │
 ╰────────────╯
+
 ```
 
 The [`where`](/commands/docs/where.md) command can be used to create a subset of a list, effectively filtering the list based on a condition.
@@ -168,6 +173,7 @@ Output:
 │ 10 │
 │  8 │
 ╰────╯
+
 ```
 
 The [`reduce`](/commands/docs/reduce.md) command computes a single value from a list.
@@ -191,6 +197,7 @@ Output:
 
 ```
 16
+
 ```
 
 ## Accessing the list
@@ -208,6 +215,7 @@ Output:
 
 ```
 Tami
+
 ```
 
 If the index is in some variable `$index` we can use the `get` command to extract the item from the list.
@@ -222,6 +230,7 @@ Output:
 
 ```
 Tami
+
 ```
 
 The [`length`](/commands/docs/length.md) command returns the number of items in a list.
@@ -242,6 +251,7 @@ Output:
 
 ```
 true
+
 ```
 
 The `in` and `not-in` operators are used to test whether a value is in a list. For example:
@@ -257,6 +267,7 @@ Output:
 
 ```
 true
+
 ```
 
 The [`any`](/commands/docs/any.md) command determines if any item in a list
@@ -283,6 +294,7 @@ Output:
 
 ```
 true
+
 ```
 
 The [`all`](/commands/docs/all.md) command determines if every item in a list
@@ -309,6 +321,7 @@ Output:
 
 ```
 false
+
 ```
 
 ## Converting the list
@@ -337,6 +350,7 @@ Output:
 │ 7 │
 │ 8 │
 ╰───╯
+
 ```
 
 The [`wrap`](/commands/docs/wrap.md) command converts a list to a table. Each list value will

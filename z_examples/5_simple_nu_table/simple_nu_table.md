@@ -1,5 +1,6 @@
 ```nushell
 > $env.numd?
+
 ```
 
 ```nushell
@@ -12,6 +13,7 @@ Output:
 ╭─a─┬─b─┬─c─╮
 │ 1 │ 2 │ 3 │
 ╰─a─┴─b─┴─c─╯
+
 ```
 
 ```nushell
@@ -37,4 +39,5 @@ Output:
 │ value_1 │ Veniam cillum et et. Et et qui enim magna. Qui enim, magna eu aute lorem.Eu aute lorem ullamco sed ipsum incidid... │
 │ value_2 │ Irure quis magna ipsum anim. Magna ipsum anim aliquip elit lorem ut. Anim aliquip elit lorem, ut quis nostrud. L... │
 ╰─column──┴──────────────────────────────────────────────────────long_text──────────────────────────────────────────────────────╯
+
 ```
