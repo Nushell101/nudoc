@@ -241,7 +241,7 @@ export def 'parse-help' [
             | str join (char nl)
             | $"($k):\n($in)"
         }
-        | to text
+        | str join (char nl)
         | str replace -ar '\s+$' '' # empty trailing new lines
         | str replace -arm '^' '// '
     }
