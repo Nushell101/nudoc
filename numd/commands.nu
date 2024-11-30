@@ -431,7 +431,7 @@ export def merge-markdown [
 ]: nothing -> string {
     $md_classified
     | where action == 'print-as-it-is'
-    | update line {to text}
+    | update line {str join (char nl)}
     | append $nu_res_with_block_index
     | sort-by block_index
     | get line
