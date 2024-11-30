@@ -238,7 +238,7 @@ export def 'parse-help' [
     } else {
         items {|k v| $v
             | str replace -r '^\s*(\S)' '  $1' # add two spaces before description lines
-            | to text
+            | str join (char nl)
             | $"($k):\n($in)"
         }
         | to text
