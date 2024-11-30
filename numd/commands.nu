@@ -43,7 +43,7 @@ export def run [
             return { filename: $file,
                 comment: "the script didn't produce any output" }
         } else {}
-        | str replace -ar "\n{2,}```\n" "\n```\n"
+        | str replace -ar "(\n(//)?){2,}```\n" "\n```\n"
         | lines
         | extract-block-index $in
 
