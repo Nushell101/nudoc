@@ -232,7 +232,7 @@ export def 'parse-help' [
     | if $sections == null {} else { select -i ...$sections }
     | if $record {
         items {|k v|
-            {$k: ($v | to text)}
+            {$k: ($v | str join (char nl))}
         }
         | into record
     } else {
